@@ -599,6 +599,18 @@ class DocumentModifier:
         if not text or not text.strip():
             return text
 
+        if (
+            getattr(self.config, "ENABLE_PHRASE_REWRITE", True)
+            or getattr(self.config, "ENABLE_SYNONYMS", True)
+        ) and not (SYNONYMS or PHRASES):
+            import warnings
+            warnings.warn(
+                "Legacy rules failed to load or are empty in DocumentModifier; "
+                "transformations cannot be applied and text will remain unchanged.",
+                RuntimeWarning,
+                stacklevel=2,
+            )
+
         paragraphs = text.split("\n\n")
         processed_paragraphs = []
         citation_idx = 1

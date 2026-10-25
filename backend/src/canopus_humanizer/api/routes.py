@@ -142,6 +142,16 @@ async def humanize_endpoint(payload: HumanizeRequest) -> HumanizeResponse:
     modifier = DocumentModifier(config=req_config, seed=payload.seed)
     protected_set = set(payload.protected_terms or [])
 
+    from canopus_humanizer.core.rules import are_rules_loaded
+    rules_ok = are_rules_loaded()
+    if not rules_ok:
+        import warnings
+        warnings.warn(
+            "Legacy rules failed to load. /v1/humanize will return unchanged input.",
+            RuntimeWarning,
+            stacklevel=2,
+        )
+
     humanized = modifier.modify_document(
         payload.text,
         protected_terms=protected_set,
@@ -151,25 +161,30 @@ async def humanize_endpoint(payload: HumanizeRequest) -> HumanizeResponse:
     latency = round((time.perf_counter() - start_time) * 1000.0, 2)
     words = len(payload.text.split())
 
+    telemetry: Dict[str, Any] = {
+        "rules_loaded": rules_ok,
+        "total_modifications": modifier.total_transforms,
+        "word_count": words,
+        "stages_applied": [
+            k for k, v in {
+                "phrase_rewrite": modifier.phrase_rewrite_count,
+                "synonyms": modifier.synonym_count,
+                "determiner_swap": modifier.determiner_swap_count,
+                "discourse_rotation": modifier.discourse_rotate_count,
+                "sentence_fusion": modifier.sentence_fusion_count,
+            }.items() if v > 0
+        ],
+    }
+    if not rules_ok:
+        telemetry["warning"] = "Legacy rules failed to load; input returned unchanged."
+
     return HumanizeResponse(
         success=True,
         humanized_text=humanized,
         words_processed=words,
         modifications_count=modifier.total_transforms,
         latency_ms=latency,
-        telemetry={
-            "total_modifications": modifier.total_transforms,
-            "word_count": words,
-            "stages_applied": [
-                k for k, v in {
-                    "phrase_rewrite": modifier.phrase_rewrite_count,
-                    "synonyms": modifier.synonym_count,
-                    "determiner_swap": modifier.determiner_swap_count,
-                    "discourse_rotation": modifier.discourse_rotate_count,
-                    "sentence_fusion": modifier.sentence_fusion_count,
-                }.items() if v > 0
-            ],
-        },
+        telemetry=telemetry,
     )
 
 
