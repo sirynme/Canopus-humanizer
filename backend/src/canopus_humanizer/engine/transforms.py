@@ -1,7 +1,7 @@
 """Deterministic transformation operations and case preservation logic."""
 
 import re
-from typing import List, Optional, Tuple
+from typing import List, Optional, Sequence, Tuple
 
 from canopus_humanizer.engine.models import Change
 from canopus_humanizer.rules.schema import RuleDefinition
