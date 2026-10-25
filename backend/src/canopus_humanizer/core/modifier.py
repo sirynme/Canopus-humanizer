@@ -1,12 +1,12 @@
-"""turnitout text transformation engine."""
+"""canopus-humanizer text transformation engine."""
 
 import random
 import re
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-from turnitout.config import GLOBAL_CONFIG, ConfigNamespace
-from turnitout.core.protection import ConservativeProtectionLayer
-from turnitout.core.rules import (
+from canopus_humanizer.config import GLOBAL_CONFIG, ConfigNamespace
+from canopus_humanizer.core.protection import ConservativeProtectionLayer
+from canopus_humanizer.core.rules import (
     APPOSITIVES,
     CONJUNCTIONS,
     DETERMINERS,

@@ -1,5 +1,5 @@
 {
-  "app_name": "Turnitout Core",
+  "app_name": "canopus-humanizer Core",
   "version": "2.6.0",
   "environment": "production",
   "pipeline_defaults": {

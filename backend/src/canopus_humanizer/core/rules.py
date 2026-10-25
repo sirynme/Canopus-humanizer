@@ -1,4 +1,4 @@
-"""Rules loader for turnitout engine."""
+"""Rules loader for canopus-humanizer engine."""
 
 import json
 import os

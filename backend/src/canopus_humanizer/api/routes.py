@@ -1,14 +1,14 @@
-"""FastAPI router implementation for turnitout API."""
+"""FastAPI router implementation for canopus-humanizer API."""
 
 import time
 from typing import Optional
 from fastapi import APIRouter
 
-from turnitout.api.schemas import HealthResponse, HumanizeRequest, HumanizeResponse
-from turnitout.config import GLOBAL_CONFIG, ConfigNamespace
-from turnitout.core.modifier import DocumentModifier
+from canopus_humanizer.api.schemas import HealthResponse, HumanizeRequest, HumanizeResponse
+from canopus_humanizer.config import GLOBAL_CONFIG, ConfigNamespace
+from canopus_humanizer.core.modifier import DocumentModifier
 
-router = APIRouter(prefix="/v1", tags=["turnitout API"])
+router = APIRouter(prefix="/v1", tags=["canopus-humanizer API"])
 
 
 @router.post("/humanize", response_model=HumanizeResponse)
@@ -69,7 +69,7 @@ async def health_endpoint() -> HealthResponse:
     """Service health and liveness probe."""
     return HealthResponse(
         status="healthy",
-        engine="turnitout",
+        engine="canopus-humanizer",
         version=GLOBAL_CONFIG.VERSION,
         timestamp=time.time(),
     )

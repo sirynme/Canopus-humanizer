@@ -6,7 +6,7 @@ import time
 import zipfile
 from typing import Any, Dict, List, Optional, Tuple
 
-from turnitout.core.modifier import DocumentModifier
+from canopus_humanizer.core.modifier import DocumentModifier
 
 
 class DocumentProcessor:
@@ -105,7 +105,7 @@ class DocumentProcessor:
         doc.save(out_buffer)
         return out_buffer.getvalue()
 
-    def create_in_memory_zip(self, files: List[Tuple[str, bytes]], archive_prefix: str = "Turnitout_Humanized_Docs") -> Tuple[str, bytes]:
+    def create_in_memory_zip(self, files: List[Tuple[str, bytes]], archive_prefix: str = "Canopus_Humanized_Docs") -> Tuple[str, bytes]:
         """Creates a branded in-memory ZIP bundle without disk cache leakage."""
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         zip_filename = f"{archive_prefix}_{timestamp}.zip"

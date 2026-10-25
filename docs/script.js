@@ -1,5 +1,5 @@
 /**
- * turnitout Frontend Script
+ * canopus-humanizer Frontend Script
  * Connects to local FastAPI backend (http://127.0.0.1:8080)
  * with client-side fallback.
  */
@@ -77,13 +77,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function setTheme(isLight) {
     if (isLight) {
       document.body.classList.add("light-mode");
-      localStorage.setItem("turnitout_theme", "light");
+      localStorage.setItem("canopus_theme", "light");
       if (themeIcon) {
         themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
       }
     } else {
       document.body.classList.remove("light-mode");
-      localStorage.setItem("turnitout_theme", "dark");
+      localStorage.setItem("canopus_theme", "dark");
       if (themeIcon) {
         themeIcon.innerHTML = `
           <circle cx="12" cy="12" r="5"></circle>
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const savedTheme = localStorage.getItem("turnitout_theme");
+  const savedTheme = localStorage.getItem("canopus_theme");
   setTheme(savedTheme === "light");
 
   if (themeToggleBtn) {

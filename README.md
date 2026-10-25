@@ -1,6 +1,6 @@
-# turnitout
+# canopus-humanizer
 
-turnitout is a deterministic text humanization engine that applies rule-based linguistic variations while preserving technical formatting, numbers, in-text citations, and mathematical formulas (LaTeX).
+canopus-humanizer is a deterministic text humanization engine that applies rule-based linguistic variations while preserving technical formatting, numbers, in-text citations, and mathematical formulas (LaTeX).
 
 ## Backend Installation & Run
 

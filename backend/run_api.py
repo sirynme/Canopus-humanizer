@@ -12,11 +12,11 @@ if str(src_dir) not in sys.path:
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from turnitout.api.routes import router as api_router
-from turnitout.config import GLOBAL_CONFIG
+from canopus_humanizer.api.routes import router as api_router
+from canopus_humanizer.config import GLOBAL_CONFIG
 
 app = FastAPI(
-    title="turnitout API",
+    title="canopus-humanizer API",
     description="Text humanization API",
     version=GLOBAL_CONFIG.VERSION,
     docs_url="/docs",
@@ -48,6 +48,6 @@ def root_status():
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("API_PORT", 8080))
-    print(f"\nStarting turnitout API on http://127.0.0.1:{port} ...")
+    print(f"\nStarting canopus-humanizer API on http://127.0.0.1:{port} ...")
     print(f"API Documentation available at http://127.0.0.1:{port}/docs\n")
     uvicorn.run("run_api:app", host="0.0.0.0", port=port, reload=False, app_dir=str(backend_dir))

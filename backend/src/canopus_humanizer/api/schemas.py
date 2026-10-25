@@ -1,4 +1,4 @@
-"""Pydantic schemas for turnitout API."""
+"""Pydantic schemas for canopus-humanizer API."""
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
