@@ -1,1 +1,0 @@
-Differential geometry analyzes smooth manifolds equipped with symmetric Riemannian metric tensors g_ij. Geodesic curves minimize the Riemannian action integral across curves connecting two boundary points. When the sectional curvature is strictly negative, the geodesic flow exhibits Anosov hyperbolicity and exponential mixing of trajectories.

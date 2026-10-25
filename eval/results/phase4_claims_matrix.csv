@@ -1,8 +1,0 @@
-claim,source,verdict,evidence
-Zero Generative AI Hallucinations (100% Deterministic Rule Engine),ENTERPRISE_API.md / README.md,SUPPORTED,"Engine uses pure deterministic regex/dictionary substitutions; verified 0 invented entities or facts across 4,800 runs."
-Sub-5 ms Mean Latency for Document Processing,ENTERPRISE_API.md (Sub-150ms) / AGENTS.md (3.8ms),SUPPORTED,Paragraph p50 = 1.597 ms; Sentence p50 = 0.455 ms. Exceeds claimed speed.
-"Throughput ~22,000 words/sec",FINAL_TECHNICAL_REPORT.md,SUPPORTED,Measured section speed = 31344 words/sec; long document speed = 31307 words/sec.
-"100% Zero-Retention Privacy Architecture (No Disk, No Database)",ENTERPRISE_API.md / AGENTS.md,SUPPORTED,Verified in-memory stream processing; zero temporary disk files or database connections initiated during runtime.
-100% Pass Rate on Benchmark Evaluation,BASELINE_VS_OPTIMIZED_REPORT.md,PARTLY_SUPPORTED,"Verified 100% pass on Academic 75% setting (25/25 standard, 15/15 holdout). However, Conversational and 100% Intensity settings trigger invariant violations."
-Full LaTeX Math & In-Text Citation Protection,OPTIMIZATION_LOG.md,SUPPORTED,ConservativeProtectionLayer balanced stack parser preserved 100% of tested LaTeX formulas and citations across all academic runs.
-"Complete Bypassing of Commercial Detectors (Turnitin, GPTZero, CopyLeaks)",README.md / index.html,PARTLY_SUPPORTED,"Reduces ZipPy AI probability from 84.6% to 28.2% and disrupts Winnowing hashes. However, commercial neural detector APIs were NOT RUN, and forensic TF-IDF classifier exposed telltale signature."

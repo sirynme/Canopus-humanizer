@@ -1,8 +1,4 @@
-"""In-Place Document Stream Processor & In-Memory Archive Bundler.
-
-Supports DOCX, LaTeX (.tex), Markdown (.md), Plain Text, and ZIP archives.
-Strictly preserves formatting, equations, XML runs, and document structure.
-"""
+"""Document processor for DOCX, LaTeX, Markdown, and plain text."""
 
 import io
 import re

@@ -1,1 +1,0 @@
-Modern portfolio theory balances expected portfolio return against portfolio variance using the covariance matrix Sigma of asset returns.

@@ -1,8 +1,7 @@
 /**
- * TURNITOUT — AI Humanizer & Detection Bypass
- * Ultra-clean, deterministic, and to-the-point client logic.
- * Integrates directly with local FastAPI backend (http://127.0.0.1:8080)
- * with instant client-side rule disruption fallback.
+ * turnitout Frontend Script
+ * Connects to local FastAPI backend (http://127.0.0.1:8080)
+ * with client-side fallback.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const outputText = document.getElementById("outputText");
   const inputStats = document.getElementById("inputStats");
   const outputStats = document.getElementById("outputStats");
-  const detectionBadge = document.getElementById("detectionBadge");
   const scoreText = document.getElementById("scoreText");
 
   const pasteBtn = document.getElementById("pasteBtn");
@@ -184,16 +182,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Sample AI Text
-  const AI_SAMPLE_TEXT = 
-    "Furthermore, it is important to delve into the comprehensive tapestry of modern artificial intelligence. " +
-    "This study plays a pivotal role in illustrating that machine learning algorithms stand as a testament " +
-    "to human innovation. In conclusion, our findings demonstrate that stochastic gradient descent provides " +
-    "a robust framework for complex empirical inquiries, due to the fact that optimization remains essential.";
+  // Sample Text
+  const SAMPLE_TEXT = 
+    "Furthermore, it is important to analyze modern artificial intelligence. " +
+    "This study plays a key role in demonstrating that machine learning algorithms " +
+    "continue to evolve rapidly. In conclusion, findings reveal that optimization " +
+    "remains essential, due to the fact that empirical inquiries require rigorous validation.";
 
   if (sampleBtn && inputText) {
     sampleBtn.addEventListener("click", () => {
-      inputText.value = AI_SAMPLE_TEXT;
+      inputText.value = SAMPLE_TEXT;
       updateStats();
       inputText.focus();
     });
@@ -208,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateOutputStats();
       if (fileUploadNotice) fileUploadNotice.style.display = "none";
       if (fileUploadInput) fileUploadInput.value = "";
-      if (scoreText) scoreText.textContent = "Ready to Humanize";
+      if (scoreText) scoreText.textContent = "Ready";
     });
   }
 
@@ -269,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
-  // 5. HUMANIZATION EXECUTION (Direct REST API + Offline Fallback)
+  // 5. HUMANIZATION EXECUTION (Direct REST API + Local Fallback)
   // ==========================================================================
   if (humanizeBtn) {
     humanizeBtn.addEventListener("click", async () => {
@@ -282,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // UI Loading State
       humanizeBtn.disabled = true;
       if (btnIcon) btnIcon.innerHTML = '<span class="spinner"></span>';
-      if (btnLabel) btnLabel.textContent = "Humanizing & Bypassing AI...";
+      if (btnLabel) btnLabel.textContent = "Processing...";
 
       const intensity = intensitySlider ? parseFloat(intensitySlider.value) : 75.0;
       const protectedTerms = (protectedTermsInput && protectedTermsInput.value)
@@ -293,10 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
         text: rawText,
         intensity: intensity,
         style: selectedStyle,
-        protected_terms: protectedTerms,
-        enable_citations: false,
-        max_citations: 0,
-        citation_format: "IEEE [1]"
+        protected_terms: protectedTerms
       };
 
       try {
@@ -311,34 +306,34 @@ document.addEventListener("DOMContentLoaded", () => {
           const data = await response.json();
           if (outputText) outputText.value = data.humanized_text;
           updateOutputStats();
-          if (scoreText) scoreText.textContent = "🟢 0% AI Detected • 100% Human Score";
+          if (scoreText) scoreText.textContent = "Transformation Complete";
         } else {
           throw new Error("API non-200 status");
         }
       } catch (err) {
-        // Fast client-side rule disruption fallback
+        // Fallback local transformation
         const fallback = runClientSideDisruption(rawText);
         if (outputText) outputText.value = fallback;
         updateOutputStats();
-        if (scoreText) scoreText.textContent = "🟢 0% AI Detected • 100% Human Score";
+        if (scoreText) scoreText.textContent = "Transformation Complete";
       } finally {
         humanizeBtn.disabled = false;
         if (btnIcon) btnIcon.textContent = "⚡";
-        if (btnLabel) btnLabel.textContent = "Humanize Text Now";
+        if (btnLabel) btnLabel.textContent = "Humanize Text";
       }
     });
   }
 
-  // Client-Side Fallback Engine (Zero AI Footprint Disruption)
+  // Client-Side Fallback Engine
   function runClientSideDisruption(raw) {
     let text = raw;
 
     const rewrites = [
       [/\bFurthermore,?\b/gi, "Also,"],
       [/\bMoreover,?\b/gi, "In addition,"],
-      [/\bIn conclusion,?\b/gi, "To encapsulate,"],
-      [/\bit is important to delve into\b/gi, "we scrutinize closely"],
-      [/\bdelve into\b/gi, "scrutinize"],
+      [/\bIn conclusion,?\b/gi, "To summarize,"],
+      [/\bit is important to delve into\b/gi, "we examine closely"],
+      [/\bdelve into\b/gi, "examine"],
       [/\bcomprehensive tapestry\b/gi, "broad synthesis"],
       [/\bplays a pivotal role in illustrating\b/gi, "clearly demonstrates"],
       [/\bplays a pivotal role\b/gi, "occupies a key position"],

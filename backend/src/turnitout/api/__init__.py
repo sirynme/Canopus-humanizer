@@ -1,1 +1,1 @@
-"""Turnitout Enterprise REST API Subpackage."""
+"""turnitout REST API subpackage."""

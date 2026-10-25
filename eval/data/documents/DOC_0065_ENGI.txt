@@ -1,1 +1,0 @@
-The thermodynamic efficiency of thermal power cycles is bounded by the Carnot limit eta = 1 - (Tc / Th).

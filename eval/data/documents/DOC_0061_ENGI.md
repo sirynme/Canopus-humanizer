@@ -1,3 +1,0 @@
-The thermodynamic efficiency of thermal power cycles is bounded by the Carnot limit eta = 1 - (Tc / Th). In superheated regenerative Rankine cycles, turbine bleed steam preheats boiler feedwater, thereby reducing irreversible entropy generation across heat exchange surfaces. Numerical simulations indicate that multi-stage reheating elevates cycle thermal efficiency to 44.6% at a peak operating pressure of 24.5 MPa.
-
-Furthermore, modern deep learning architectures play an essential role in optimizing downstream performance.

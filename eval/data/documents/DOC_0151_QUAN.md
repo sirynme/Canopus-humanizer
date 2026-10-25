@@ -1,3 +1,0 @@
-Modern portfolio theory balances expected portfolio return against portfolio variance using the covariance matrix Sigma of asset returns. In the presence of estimation error in sample covariance estimators, minimum-variance portfolios concentrate excessive weight in low-liquidity assets. Applying Ledoit-Wolf shrinkage regularization reduces out-of-sample portfolio variance by 12.3% (p = 0.004).
-
-Furthermore, modern deep learning architectures play an essential role in optimizing downstream performance.

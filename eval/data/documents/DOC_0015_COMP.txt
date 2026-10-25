@@ -1,1 +1,0 @@
-Convolutional neural networks extract hierarchical spatial representations from raw sensor data through weight sharing and receptive field pooling.

@@ -1,10 +1,4 @@
-"""Turnitout Mathematical Transformation Engine (17-Stage Pipeline).
-
-Adheres strictly to GodGuide.md and similarity_evasion_analysis.md:
-- Defeats Winnowing algorithm (k=5, w=4) by ensuring no 5-gram survives intact.
-- Defeats AI detection by elevating perplexity, burstiness, token entropy, and rotating discourse markers.
-- Protects LaTeX, Markdown, Code syntax, and technical entities.
-"""
+"""turnitout text transformation engine."""
 
 import random
 import re
@@ -27,7 +21,7 @@ from turnitout.core.rules import (
 
 
 class DocumentModifier:
-    """Core deterministic transformation engine executing 17 sequential stages."""
+    """Core transformation engine for text processing."""
 
     def __init__(self, config: Optional[ConfigNamespace] = None, seed: Optional[int] = None):
         self.config = config or GLOBAL_CONFIG
@@ -262,7 +256,7 @@ class DocumentModifier:
         return text
 
     # --------------------------------------------------------------------------
-    # STAGE 8: Winnowing 5-Gram Disruption (N-Gram Auditor)
+    # STAGE 8: N-Gram Adjustment
     # --------------------------------------------------------------------------
     def _break_ngram_chains(self, text: str) -> str:
         if not self.config.ENABLE_NGRAM_AUDIT or "\x00" in text:
@@ -381,7 +375,7 @@ class DocumentModifier:
         return text
 
     # --------------------------------------------------------------------------
-    # STAGE 12: Clause-Level Word Reordering (Positional Hash Destroyer)
+    # STAGE 12: Clause-Level Word Reordering
     # --------------------------------------------------------------------------
     def _reorder_within_clause(self, text: str) -> str:
         if not self.config.ENABLE_WORD_REORDER or len(text) < 80 or "\x00" in text:
@@ -428,7 +422,7 @@ class DocumentModifier:
         return text
 
     # --------------------------------------------------------------------------
-    # STAGE 14: Appositive Clause Injection (Entropy Bomb)
+    # STAGE 14: Appositive Clause Injection
     # --------------------------------------------------------------------------
     def _inject_appositives(self, text: str) -> str:
         if not self.config.ENABLE_APPOSITIVE or "\x00" in text:
@@ -449,7 +443,7 @@ class DocumentModifier:
         return text
 
     # --------------------------------------------------------------------------
-    # STAGE 15: Discourse Marker Rotation (Anti-Repetition Shield)
+    # STAGE 15: Discourse Marker Rotation
     # --------------------------------------------------------------------------
     def _rotate_discourse_markers(self, text: str) -> str:
         if not self.config.ENABLE_DISCOURSE_ROTATE or "\x00" in text:
@@ -475,7 +469,7 @@ class DocumentModifier:
         return text
 
     # --------------------------------------------------------------------------
-    # STAGE 17: Contextual Citation Shielding
+    # STAGE 17: Citation Injection
     # --------------------------------------------------------------------------
     def _maybe_add_citation(
         self,

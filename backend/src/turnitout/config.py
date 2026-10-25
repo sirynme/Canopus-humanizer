@@ -1,4 +1,4 @@
-"""Global Configuration Module for Turnitout Engine."""
+"""Configuration module for turnitout engine."""
 
 import json
 import os
@@ -16,41 +16,31 @@ def find_project_root() -> Path:
 
 
 class ConfigNamespace:
-    """Central configuration container matching global_config.json and environment variables."""
+    """Configuration container matching global_config.json and environment variables."""
 
     def __init__(self, config_dict: Optional[Dict[str, Any]] = None):
         d = config_dict or {}
         pipeline = d.get("pipeline_defaults", {})
         api_cfg = d.get("api_settings", {})
-        tb_cfg = d.get("traffic_balancing", {})
 
         # Core Identity
-        self.APP_NAME: str = d.get("app_name", "Turnitout Core")
+        self.APP_NAME: str = d.get("app_name", "turnitout")
         self.VERSION: str = d.get("version", "2.6.0")
         self.ENVIRONMENT: str = os.getenv("ENVIRONMENT", d.get("environment", "production"))
-
-        # VIP / Whitelist
-        self.WHITELISTED_USERS: List[str] = [u.lower() for u in d.get("whitelisted_users", ["admin"])]
-
-        # Traffic Balancing
-        self.ENABLE_OFFLOAD: bool = tb_cfg.get("enable_offload", False)
-        self.OFFLOAD_PERCENTAGE: int = tb_cfg.get("offload_percentage", 85)
-        self.WORKER_NODES: List[str] = tb_cfg.get("worker_nodes", [])
 
         # Pipeline Aggressiveness & Style Defaults
         self.INTENSITY: float = float(os.getenv("TURNITOUT_INTENSITY", pipeline.get("intensity", 70.0)))
         self.STYLE: str = os.getenv("TURNITOUT_STYLE", pipeline.get("style", "academic"))
 
-        # Stage Toggles (Env overrides JSON, JSON overrides Default)
+        # Stage Toggles
         self.ENABLE_SYNONYMS: bool = self._bool_env("TURNITOUT_SYNONYMS", pipeline.get("enable_synonyms", True))
         self.SYNONYM_ALIGNMENT: float = float(os.getenv("TURNITOUT_SYNONYM_ALIGNMENT", pipeline.get("synonym_alignment", 0.85)))
         self.RANDOM_ALIGNMENT: bool = self._bool_env("TURNITOUT_RANDOM_ALIGNMENT", pipeline.get("random_alignment", False))
-        
+
         self.ENABLE_PHRASE_REWRITE: bool = self._bool_env("TURNITOUT_PHRASE_REWRITE", pipeline.get("enable_phrase_rewrite", True))
         self.ENABLE_DETERMINER_SWAP: bool = self._bool_env("TURNITOUT_DETERMINER_SWAP", pipeline.get("enable_determiner_swap", True))
         self.ENABLE_DISCOURSE_ROTATE: bool = self._bool_env("TURNITOUT_DISCOURSE_ROTATE", pipeline.get("enable_discourse_rotate", True))
 
-        # Safe Academic Defaults: Destructive stages disabled by default
         self.ENABLE_VOICE_TRANSFORM: bool = self._bool_env("TURNITOUT_VOICE_TRANSFORM", pipeline.get("enable_voice_transform", False))
         self.ENABLE_SENTENCE_FUSION: bool = self._bool_env("TURNITOUT_SENTENCE_FUSION", pipeline.get("enable_sentence_fusion", True))
         self.ENABLE_TRANSITION_INJECT: bool = self._bool_env("TURNITOUT_TRANSITION_INJECT", pipeline.get("enable_transition_inject", False))
@@ -74,7 +64,6 @@ class ConfigNamespace:
 
         # API Security & Server
         self.AUTH_REQUIRED: bool = self._bool_env("AUTH_REQUIRED", api_cfg.get("auth_required", False))
-        self.API_KEY: str = os.getenv("TURNITOUT_API_KEY", api_cfg.get("default_api_key", "tot_live_demo_local_key"))
         self.MAX_TEXT_LENGTH: int = int(api_cfg.get("max_text_length", 50000))
         self.RATE_LIMIT_PER_MINUTE: int = int(api_cfg.get("rate_limit_per_minute", 120))
 
@@ -90,7 +79,7 @@ def load_config(config_path: Optional[str] = None) -> ConfigNamespace:
     """Load configuration from global_config.json with environment variable overrides."""
     root = find_project_root()
     path = Path(config_path) if config_path else root / "configs" / "global_config.json"
-    
+
     config_dict = {}
     if path.exists():
         try:
@@ -102,5 +91,4 @@ def load_config(config_path: Optional[str] = None) -> ConfigNamespace:
     return ConfigNamespace(config_dict)
 
 
-# Global Singleton
 GLOBAL_CONFIG = load_config()

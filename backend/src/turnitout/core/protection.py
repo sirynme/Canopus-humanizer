@@ -1,21 +1,11 @@
-"""Conservative Document Protection Layer for Academic, Scientific & Technical Text.
-
-Implements multi-tier symbolic invariant shielding:
-1. Balanced-brace LaTeX parser for nested macros and math environments.
-2. Academic in-text citation shielding (IEEE, APA, LaTeX cite).
-3. Statistical values and confidence intervals (p-values, 95% CI).
-4. Numerical quantities, currency, dates, and physical units.
-5. Multi-Word Technical Units (MWUs) preventing compound noun disruption.
-6. Formal academic proposal headers (Problem Statement, RQ, Hypotheses).
-7. Fail-closed validation with exact restoration and safe rollback.
-"""
+"""Document protection layer for LaTeX, citations, numbers, and technical terms."""
 
 import re
 from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 class ConservativeProtectionLayer:
-    """Shields high-integrity text elements from destructive regex transformations."""
+    """Shields protected text elements from modification."""
 
     def __init__(self, additional_protected_terms: Optional[Set[str]] = None):
         self._placeholders: List[Tuple[str, str]] = []  # (placeholder, original_text)

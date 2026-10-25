@@ -1,1 +1,0 @@
-Social capital theory posits that interpersonal networks and associated norms of generalized reciprocity enhance civic engagement and institutional performance. Empirical surveys conducted across 48 metropolitan regions established a robust positive correlation (r = 0.64, p < 0.001) between community trust indicators and public health outcomes.

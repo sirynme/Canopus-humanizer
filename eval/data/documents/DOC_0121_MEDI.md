@@ -1,3 +1,0 @@
-Monoclonal antibodies targeting cytotoxic T-lymphocyte antigen 4 (CTLA-4) and programmed cell death protein 1 (PD-1) restore anti-tumor immune responses in metastatic melanoma. In a randomized phase III trial involving 945 patients, combination checkpoint blockade yielded a median progression-free survival of 11.5 months compared to 2.9 months with monotherapy (hazard ratio HR = 0.42, 95% CI: 0.31 to 0.57).
-
-Furthermore, modern deep learning architectures play an essential role in optimizing downstream performance.

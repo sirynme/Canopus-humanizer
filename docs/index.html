@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turnitout — AI Humanizer & Detection Bypass</title>
+  <title>turnitout — Text Humanizer</title>
   
-  <meta name="description" content="100% deterministic, rule-based AI humanizer. Turn AI-generated drafts into natural, human-written text that bypasses Turnitin, GPTZero, and CopyLeaks with zero generative AI footprint.">
-  <meta name="author" content="Ahmad Hassan">
+  <meta name="description" content="A clean, deterministic rule-based text humanizer with format protection.">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -24,11 +23,11 @@
   <!-- Clean Top Navigation Bar -->
   <header class="navbar">
     <div class="nav-content">
-      <a href="#" class="brand" aria-label="Turnitout Home">
-        <img src="assets/logo.svg" alt="Turnitout Logo" class="brand-logo" onerror="this.src='favicon.svg'">
+      <a href="#" class="brand" aria-label="turnitout Home">
+        <img src="assets/logo.svg" alt="turnitout Logo" class="brand-logo" onerror="this.src='favicon.svg'">
         <div class="brand-title">
           <span class="brand-name">TURNITOUT</span>
-          <span class="brand-pill">AI Humanizer</span>
+          <span class="brand-pill">Text Humanizer</span>
         </div>
       </a>
 
@@ -36,7 +35,7 @@
         <!-- Live Engine Status Indicator -->
         <div class="status-indicator" id="apiStatusBadge" title="Backend Engine Status">
           <span class="status-dot" id="statusDot"></span>
-          <span id="apiStatusText" class="status-label">Engine Ready</span>
+          <span id="apiStatusText" class="status-label">Checking...</span>
         </div>
 
         <!-- Light / Dark Theme Toggle -->
@@ -59,9 +58,9 @@
 
   <!-- Hero Headline -->
   <section class="hero-section">
-    <h1 class="hero-title">Make AI Text 100% Human & Undetectable</h1>
+    <h1 class="hero-title">Deterministic Text Humanizer</h1>
     <p class="hero-subtitle">
-      Convert ChatGPT, Claude, and Gemini text into authentic human-grade writing that bypasses Turnitin, GPTZero, and CopyLeaks.
+      Rule-based linguistic variation engine with format protection for LaTeX, code, and technical documents.
     </p>
   </section>
 
@@ -109,8 +108,8 @@
       <div class="preserve-content">
         <label for="protectedTermsInput" class="preserve-label">Words or Names to Preserve (Unchanged):</label>
         <div class="preserve-input-row">
-          <input type="text" id="protectedTermsInput" class="preserve-input" placeholder="e.g. CRISPR, John Doe, PyTorch, iPhone (comma separated)">
-          <span class="preserve-tip">These terms will remain 100% untouched during transformation.</span>
+          <input type="text" id="protectedTermsInput" class="preserve-input" placeholder="e.g. CRISPR, PyTorch, iPhone (comma separated)">
+          <span class="preserve-tip">These terms will remain untouched during transformation.</span>
         </div>
       </div>
     </div>
@@ -123,14 +122,14 @@
         <div class="pane-top">
           <div class="pane-headline">
             <span class="pane-icon">📄</span>
-            <span class="pane-text">AI Text Input</span>
+            <span class="pane-text">Input Text</span>
           </div>
 
           <div class="pane-actions">
             <button type="button" class="btn-tool" id="pasteBtn" title="Paste text from clipboard">
               <span>📋</span> Paste
             </button>
-            <button type="button" class="btn-tool" id="sampleBtn" title="Load sample AI text">
+            <button type="button" class="btn-tool" id="sampleBtn" title="Load sample text">
               <span>✨</span> Sample
             </button>
             <label for="fileUploadInput" class="btn-tool" title="Upload a document (.txt, .docx, .md, .tex)">
@@ -144,7 +143,7 @@
         </div>
 
         <div class="editor-wrapper">
-          <textarea id="inputText" class="text-editor" placeholder="Paste your AI-generated text here (from ChatGPT, Claude, Gemini, etc.)..."></textarea>
+          <textarea id="inputText" class="text-editor" placeholder="Paste or type your text here..."></textarea>
           <div id="fileUploadNotice" class="file-notice" style="display: none;">
             <span id="fileNoticeName">File loaded</span>
             <button type="button" id="removeFileNoticeBtn" class="notice-close">✕</button>
@@ -176,13 +175,13 @@
         </div>
 
         <div class="editor-wrapper">
-          <textarea id="outputText" class="text-editor" readonly placeholder="Your humanized, detector-proof text will appear here instantly..."></textarea>
+          <textarea id="outputText" class="text-editor" readonly placeholder="Transformed text will appear here..."></textarea>
         </div>
 
         <div class="pane-bottom">
           <div class="detection-badge" id="detectionBadge">
             <span class="dot-score"></span>
-            <span id="scoreText">Ready to Humanize</span>
+            <span id="scoreText">Ready</span>
           </div>
           <span class="count-badge" id="outputStats">0 words</span>
         </div>
@@ -194,27 +193,9 @@
     <div class="action-container">
       <button type="button" class="btn-cta" id="humanizeBtn">
         <span class="cta-icon" id="btnIcon">⚡</span>
-        <span class="cta-label" id="btnLabel">Humanize Text Now</span>
+        <span class="cta-label" id="btnLabel">Humanize Text</span>
       </button>
     </div>
-
-    <!-- Independent Verification Recommendation Banner -->
-    <section class="verification-callout">
-      <div class="callout-icon">🔍</div>
-      <div class="callout-content">
-        <h3 class="callout-title">Verify AI Detection Independently</h3>
-        <p class="callout-desc">
-          Paste your humanized output directly into standard external checkers like 
-          <a href="https://quillbot.com/ai-content-detector" target="_blank" rel="noopener noreferrer" class="link-highlight">
-            QuillBot AI Content Detector ↗
-          </a> 
-          to confirm 0% AI detection.
-        </p>
-      </div>
-      <a href="https://quillbot.com/ai-content-detector" target="_blank" rel="noopener noreferrer" class="btn-callout">
-        Test on QuillBot →
-      </a>
-    </section>
 
   </main>
 
@@ -222,9 +203,7 @@
   <footer class="app-footer">
     <div class="footer-content">
       <p>
-        <strong>TURNITOUT AI Humanizer</strong> &bull; Developed by 
-        <a href="https://github.com/AhmadHassan-BTed" target="_blank" rel="noopener noreferrer">Ahmad Hassan</a>.
-        100% Deterministic & Privacy First.
+        <strong>turnitout</strong> &bull; Deterministic & Privacy-First Text Humanizer
       </p>
     </div>
   </footer>

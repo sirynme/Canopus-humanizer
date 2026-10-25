@@ -1,26 +1,7 @@
 {
-  "__prompt__": "Turnitout Global System Configuration - Single Source of Truth",
   "app_name": "Turnitout Core",
   "version": "2.6.0",
   "environment": "production",
-  "whitelisted_users": [
-    "ahmadhassan-bted",
-    "vip_researcher_demo",
-    "admin"
-  ],
-  "traffic_balancing": {
-    "enable_offload": false,
-    "offload_percentage": 85,
-    "worker_nodes": [
-      "https://turnitout1.streamlit.app/",
-      "https://turnitout2.streamlit.app/",
-      "https://turnitout3.streamlit.app/",
-      "https://turnitout4.streamlit.app/",
-      "https://turnitout5.streamlit.app/",
-      "https://turnitout6.streamlit.app/",
-      "https://turnitout7.streamlit.app/"
-    ]
-  },
   "pipeline_defaults": {
     "intensity": 70.0,
     "style": "academic",
@@ -50,7 +31,6 @@
   },
   "api_settings": {
     "auth_required": false,
-    "default_api_key": "tot_live_demo_local_key",
     "rate_limit_per_minute": 120,
     "max_text_length": 50000
   }

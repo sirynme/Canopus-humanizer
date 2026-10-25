@@ -1,1 +1,0 @@
-Differential geometry analyzes smooth manifolds equipped with symmetric Riemannian metric tensors g_ij.

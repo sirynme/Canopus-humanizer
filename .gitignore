@@ -1,6 +1,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.venv/
+venv/
 env/
 build/
 dist/
@@ -8,13 +10,10 @@ dist/
 .eggs/
 .pytest_cache/
 .env
-paper_output/*
-!paper_output/.gitkeep
-paper_input/*
-!paper_input/.gitkeep
-change_report.md
-*.pdf
 *.log
 .vscode/
 .idea/
 .DS_Store
+RELEASE_NOTES.txt
+smoke_test*.py
+test_venv/
