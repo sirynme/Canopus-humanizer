@@ -1,19 +1,128 @@
-"""FastAPI router implementation for canopus-humanizer API."""
+"""FastAPI router implementation for canopus-humanizer and Canopus Core Engine."""
 
 import time
-from typing import Optional
+from typing import Any, Dict, List, Optional
 from fastapi import APIRouter
 
-from canopus_humanizer.api.schemas import HealthResponse, HumanizeRequest, HumanizeResponse
+from canopus_humanizer.api.schemas import (
+    CitationFormatRequest,
+    CitationFormatResponse,
+    HealthResponse,
+    HumanizeRequest,
+    HumanizeResponse,
+    TransformApiRequest,
+    TransformApiResponse,
+    TransformChangeSchema,
+    ValidationIssueSchema,
+)
 from canopus_humanizer.config import GLOBAL_CONFIG, ConfigNamespace
 from canopus_humanizer.core.modifier import DocumentModifier
 
-router = APIRouter(prefix="/v1", tags=["canopus-humanizer API"])
+from canopus_humanizer.citations.formatters import CitationFormatter
+from canopus_humanizer.citations.validation import CitationValidator
+from canopus_humanizer.engine.models import TransformRequest as EngineRequest
+from canopus_humanizer.engine.pipeline import Pipeline
+from canopus_humanizer.metrics.metrics import TextMetricsCalculator
+from canopus_humanizer.rules.registry import RuleRegistry
+
+
+router = APIRouter(prefix="/v1", tags=["Humanizer & Canopus Engine"])
+
+_default_registry = RuleRegistry()
+_default_pipeline = Pipeline(registry=_default_registry, version="1.0.0")
+_metrics_calculator = TextMetricsCalculator()
+_citation_validator = CitationValidator()
+_citation_formatter = CitationFormatter()
+
+
+@router.post("/transform", response_model=TransformApiResponse)
+async def transform_endpoint(payload: TransformApiRequest) -> TransformApiResponse:
+    """Full Canopus deterministic transformation pipeline with diff and audit metrics."""
+    req = EngineRequest(
+        text=payload.text,
+        mode=payload.mode,
+        ruleset_ids=tuple(payload.ruleset_ids),
+        custom_protected_terms=tuple(payload.custom_protected_terms),
+        max_changes=payload.max_changes,
+        preserve_citations=payload.preserve_citations,
+        preserve_numbers=payload.preserve_numbers,
+    )
+    result = _default_pipeline.process(req, no_op=payload.no_op)
+
+    changes = [
+        TransformChangeSchema(
+            rule_id=c.rule_id,
+            start=c.start,
+            end=c.end,
+            before=c.before,
+            after=c.after,
+            category=c.category,
+            requires_review=c.requires_review,
+        )
+        for c in result.changes
+    ]
+
+    issues = [
+        ValidationIssueSchema(
+            code=i.code,
+            severity=i.severity,
+            message=i.message,
+            start=i.start,
+            end=i.end,
+        )
+        for i in result.issues
+    ]
+
+    return TransformApiResponse(
+        accepted=result.accepted,
+        original_text=result.original_text,
+        transformed_text=result.transformed_text,
+        changes=changes,
+        issues=issues,
+        engine_version=result.engine_version,
+        ruleset_versions=list(result.ruleset_versions),
+        diff=result.diff,
+        metrics=result.metrics,
+    )
+
+
+@router.get("/rulesets")
+async def list_rulesets_endpoint() -> Dict[str, Any]:
+    """Lists all loaded and validated rule packs with versions and hashes."""
+    ruleset_info = {}
+    for r_id, rs in _default_registry._rulesets.items():
+        ruleset_info[r_id] = {
+            "ruleset_id": rs.ruleset_id,
+            "version": rs.version,
+            "language": rs.language,
+            "rules_count": len(rs.rules),
+            "content_hash": rs.content_hash,
+        }
+    return {"rulesets": ruleset_info}
+
+
+@router.post("/citations/format", response_model=CitationFormatResponse)
+async def format_citation_endpoint(payload: CitationFormatRequest) -> CitationFormatResponse:
+    """Formats reference metadata into APA, IEEE, and BibTeX styles."""
+    data = payload.model_dump()
+    meta = _citation_validator.validate_metadata(data)
+
+    apa_str = _citation_formatter.format_apa(data)
+    ieee_str = _citation_formatter.format_ieee(data)
+    bibtex_str = _citation_formatter.format_bibtex(data)
+
+    return CitationFormatResponse(
+        apa=apa_str,
+        ieee=ieee_str,
+        bibtex=bibtex_str,
+        status=meta.status,
+        validation_notes=list(meta.validation_notes),
+    )
 
 
 @router.post("/humanize", response_model=HumanizeResponse)
 async def humanize_endpoint(payload: HumanizeRequest) -> HumanizeResponse:
-    """Transforms input text using linguistic variation stages."""
+    """Legacy endpoint supporting existing UI and backward compatibility."""
     start_time = time.perf_counter()
 
     req_config = ConfigNamespace()
