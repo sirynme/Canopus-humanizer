@@ -62,7 +62,7 @@ backend/src/canopus_humanizer/
 
 ## 3. Ten-Stage Execution Pipeline Implementation
 
-The pipeline coordinates transformations deterministically through ten discrete phases:
+The pipelinse coordinates transformations deterministically through ten discrete phases:
 
 1. **Stage 1 — Input Validation & Normalization**:
    - Inspects byte count, character count, and encoding.
