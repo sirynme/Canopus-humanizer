@@ -34,15 +34,11 @@ app.add_middleware(
 app.include_router(api_router)
 
 
-@app.get("/", tags=["Root"])
-def root_status():
-    return {
-        "status": "online",
-        "service": GLOBAL_CONFIG.APP_NAME,
-        "version": GLOBAL_CONFIG.VERSION,
-        "docs": "/docs",
-        "endpoints": ["/v1/humanize", "/v1/health"],
-    }
+# Serve frontend UI directly from docs/
+docs_dir = backend_dir.parent / "docs"
+if docs_dir.exists():
+    from fastapi.staticfiles import StaticFiles
+    app.mount("/", StaticFiles(directory=str(docs_dir), html=True), name="frontend")
 
 
 if __name__ == "__main__":

@@ -20,7 +20,7 @@ API documentation is available at `http://127.0.0.1:8080/docs`.
 
 ## Frontend
 
-Open `docs/index.html` in any web browser while the backend is running.
+The user interface is served directly at `http://127.0.0.1:8080` once the backend is running. You can also open `docs/index.html` directly in any web browser.
 
 ## Example API Usage
 
