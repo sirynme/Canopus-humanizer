@@ -1,0 +1,3 @@
+We appreciate your continued partnership with our services. Over the past three months, our support organization resolved over 4,500 customer inquiries with an average first-response latency of under 12 minutes. We are continuing to invest in automated diagnostics to provide faster answers to common account questions.
+
+Furthermore, modern deep learning architectures play an essential role in optimizing downstream performance.

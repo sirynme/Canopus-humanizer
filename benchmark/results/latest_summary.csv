@@ -1,0 +1,16 @@
+test_id,level,level_name,domain,topic,formality,verdict,composite_score,language_quality,semantic_preservation,factual_integrity,academic_quality,operational_reliability,detector_evasion,latency_ms,critical_failures_count,failed_checks_count,is_challenging_case
+HOLDOUT-L1-001,1,Basic Everyday Writing,Everyday,Daily Coordination,casual,PASS,98.2,100.0,98.9,100.0,90.0,100.0,100.0,10.06,0,0,False
+HOLDOUT-L1-002,1,Basic Everyday Writing,Everyday,Daily Coordination,casual,PASS,98.2,100.0,98.9,100.0,90.0,100.0,100.0,2.69,0,0,False
+HOLDOUT-L1-003,1,Basic Everyday Writing,Everyday,Daily Coordination,casual,PASS,93.4,87.0,90.0,100.0,90.0,100.0,99.5,1.01,0,0,True
+HOLDOUT-L2-001,2,Informational & Professional,Economics/Finance,Executive Summary & Performance Review,professional,PASS,98.5,100.0,100.0,100.0,90.0,100.0,83.4,2.02,0,0,False
+HOLDOUT-L2-002,2,Informational & Professional,Economics/Finance,Executive Summary & Performance Review,professional,PASS,98.5,100.0,100.0,100.0,90.0,100.0,83.4,1.33,0,0,False
+HOLDOUT-L2-003,2,Informational & Professional,Economics/Finance,Executive Summary & Performance Review,professional,PASS,98.5,100.0,100.0,100.0,90.0,100.0,98.9,1.41,0,0,True
+HOLDOUT-L3-001,3,Analytical & Technical,Computer Science,Distributed Systems Architecture,technical,PASS,98.5,100.0,100.0,100.0,90.0,100.0,93.6,1.01,0,0,False
+HOLDOUT-L3-002,3,Analytical & Technical,Computer Science,Distributed Systems Architecture,technical,PASS,97.8,100.0,97.3,100.0,90.0,100.0,89.1,1.58,0,0,True
+HOLDOUT-L3-003,3,Analytical & Technical,Computer Science,Distributed Systems Architecture,technical,PASS,98.5,100.0,100.0,100.0,90.0,100.0,93.6,2.29,0,0,False
+HOLDOUT-L4-001,4,Academic Writing & Literature Review,Computer Science,Literature Review & Scholarly Synthesis,scholarly,PASS,99.8,100.0,99.3,100.0,100.0,100.0,87.9,1.9,0,0,True
+HOLDOUT-L4-002,4,Academic Writing & Literature Review,Physics,Literature Review & Scholarly Synthesis,scholarly,PASS,96.1,100.0,84.3,100.0,100.0,100.0,85.2,4.18,0,0,True
+HOLDOUT-L4-003,4,Academic Writing & Literature Review,Economics,Literature Review & Scholarly Synthesis,scholarly,PASS,96.1,100.0,84.5,100.0,100.0,100.0,84.6,2.03,0,0,True
+HOLDOUT-L5-001,5,Research Proposal & Formal Academic Structure,Computer Science & Machine Learning,Continual Learning in Transformer Architectures,formal_academic_proposal,PASS,96.9,100.0,87.5,100.0,100.0,100.0,77.3,6.56,0,0,True
+HOLDOUT-L5-002,5,Research Proposal & Formal Academic Structure,Computer Science & Machine Learning,Continual Learning in Transformer Architectures,formal_academic_proposal,PASS,96.9,100.0,87.5,100.0,100.0,100.0,77.3,5.68,0,0,True
+HOLDOUT-L5-003,5,Research Proposal & Formal Academic Structure,Computer Science & Machine Learning,Continual Learning in Transformer Architectures,formal_academic_proposal,PASS,96.9,100.0,87.5,100.0,100.0,100.0,77.3,5.84,0,0,True

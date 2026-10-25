@@ -1,0 +1,32 @@
+[
+  {
+    "__prompt__": "Role: Expert Academic Editor in Software Engineering & Programming Languages.\nTask: Taxonomy, authors, and journals for software verification, architecture, and language design."
+  },
+  {
+    "subfield_id": "empirical_software_engineering",
+    "subfield_name": "Empirical Software Engineering & Verification",
+    "keywords": [
+      "software architecture",
+      "refactoring",
+      "code smell",
+      "static analysis",
+      "unit testing",
+      "continuous integration",
+      "compiler optimization",
+      "modularity"
+    ],
+    "author_pool": [
+      "Gamma, E.",
+      "Fowler, M.",
+      "Boehm, B.",
+      "Beck, K.",
+      "Garlan, D."
+    ],
+    "journals": [
+      "IEEE Transactions on Software Engineering",
+      "ACM Transactions on Software Engineering and Methodology",
+      "Empirical Software Engineering",
+      "Journal of Systems and Software"
+    ]
+  }
+]

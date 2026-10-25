@@ -1,0 +1,33 @@
+[
+  {
+    "__prompt__": "Role: Expert Academic Editor in Bioinformatics & Computational Biology.\nTask: Taxonomy, authors, and journals for structural biology and computational molecular modeling."
+  },
+  {
+    "subfield_id": "computational_structural_biology",
+    "subfield_name": "Computational Biology & Protein Structures",
+    "keywords": [
+      "bioinformatics",
+      "protein structure",
+      "molecular dynamics",
+      "docking",
+      "alphafold",
+      "sequence alignment",
+      "blast",
+      "homology modeling",
+      "phylogenetics"
+    ],
+    "author_pool": [
+      "Altschul, S. F.",
+      "Jumper, J.",
+      "Hassabis, D.",
+      "Baker, D.",
+      "Karplus, M."
+    ],
+    "journals": [
+      "Bioinformatics",
+      "PLOS Computational Biology",
+      "Journal of Molecular Biology",
+      "Nature Structural & Molecular Biology"
+    ]
+  }
+]

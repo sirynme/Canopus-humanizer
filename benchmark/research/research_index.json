@@ -1,0 +1,100 @@
+[
+  {
+    "id": "schleimer2003winnowing",
+    "authors": ["Saul Schleimer", "Daniel S. Wilkerson", "Alex Aiken"],
+    "year": 2003,
+    "title": "Winnowing: Local Algorithms for Document Fingerprinting",
+    "venue": "ACM SIGMOD International Conference on Management of Data",
+    "doi": "10.1145/872757.872770",
+    "url": "https://doi.org/10.1145/872757.872770",
+    "core_finding": "Fingerprinting guarantees detection of shared substrings of length >= (w + k - 1) via minimum hash selection in sliding windows.",
+    "codebase_implication": "N-gram breaking rules must alter word sequences cleanly at clause boundaries without dissecting compound technical terms."
+  },
+  {
+    "id": "zhang2020bertscore",
+    "authors": ["Tianyi Zhang", "Varsha Kishore", "Felix Wu", "Kilian Q. Weinberger", "Yoav Artzi"],
+    "year": 2020,
+    "title": "BERTScore: Evaluating Text Generation with BERT",
+    "venue": "International Conference on Learning Representations (ICLR)",
+    "arxiv": "1904.09675",
+    "url": "https://arxiv.org/abs/1904.09675",
+    "core_finding": "Contextual token embeddings capture semantic similarity better than n-gram overlap, but can be insensitive to negation and numerical flips.",
+    "codebase_implication": "Evaluation must combine semantic embeddings with deterministic symbolic assertion checks for numbers, negations, and entities."
+  },
+  {
+    "id": "liang2023gptdetectors",
+    "authors": ["Weixin Liang", "Mert Yuksekgonul", "Yian Mao", "Eric Wu", "James Zou"],
+    "year": 2023,
+    "title": "GPT detectors are biased against non-native English writers",
+    "venue": "Patterns (Cell Press)",
+    "doi": "10.1016/j.patter.2023.100779",
+    "url": "https://doi.org/10.1016/j.patter.2023.100779",
+    "core_finding": "Detectors evaluate perplexity and burstiness, systematically misclassifying non-native English writing as AI-generated (>61% false positive rate).",
+    "codebase_implication": "Do not optimize text transformation to game detector perplexity by adding archaic words; prioritize genuine natural human clarity."
+  },
+  {
+    "id": "jiang2024detecting",
+    "authors": ["Xiaofei Jiang", "Chen Gao", "Yong Zhang"],
+    "year": 2024,
+    "title": "Detecting ChatGPT-generated essays in a large-scale writing assessment: Is there a bias against non-native English speakers?",
+    "venue": "Computers & Education",
+    "doi": "10.1016/j.compedu.2024.105070",
+    "url": "https://doi.org/10.1016/j.compedu.2024.105070",
+    "core_finding": "Confirms detector bias against standard vocabulary and shows that ornamental vocabulary substitutions harm communicative competence.",
+    "codebase_implication": "Avoid arbitrary injections of decorative transitions or hedges into text."
+  },
+  {
+    "id": "maynez2020faithfulness",
+    "authors": ["Joshua Maynez", "Shashi Narayan", "Bernd Bohnet", "Ryan McDonald"],
+    "year": 2020,
+    "title": "On Faithfulness and Factuality in Abstractive Summarization",
+    "venue": "Association for Computational Linguistics (ACL)",
+    "doi": "10.18653/v1/2020.acl-main.173",
+    "url": "https://doi.org/10.18653/v1/2020.acl-main.173",
+    "core_finding": "Extrinsic hallucination occurs when models add non-asserted claims; intrinsic hallucination occurs when source facts are distorted.",
+    "codebase_implication": "Eliminate arbitrary appositives that add unverified encyclopedic definitions to scientific text."
+  },
+  {
+    "id": "kryscinski2020factcc",
+    "authors": ["Wojciech Kryscinski", "Bryan McCann", "Caiming Xiong", "Richard Socher"],
+    "year": 2020,
+    "title": "Evaluating the Factual Consistency of Abstractive Text Summarization",
+    "venue": "Empirical Methods in Natural Language Processing (EMNLP)",
+    "doi": "10.18653/v1/2020.emnlp-main.750",
+    "url": "https://doi.org/10.18653/v1/2020.emnlp-main.750",
+    "core_finding": "Entity and numerical quantity errors represent the majority of factual failures in automated rewriting.",
+    "codebase_implication": "Lock numerical values and proper names before transformation and verify exact 100% presence afterwards."
+  },
+  {
+    "id": "gopen1990science",
+    "authors": ["George D. Gopen", "Judith A. Swan"],
+    "year": 1990,
+    "title": "The Science of Scientific Writing",
+    "venue": "American Scientist",
+    "url": "https://www.jstor.org/stable/29774235",
+    "core_finding": "Scientific clarity requires active verbs expressing core actions; excessive nominalization obscures agency and blurs causal relationships.",
+    "codebase_implication": "Disable blind nominalization by default in academic and technical processing modes."
+  },
+  {
+    "id": "sojka2011czech",
+    "authors": ["Petr Sojka", "Martin Líška"],
+    "year": 2011,
+    "title": "The Czech Digital Mathematics Library: Processing of Mathematics in LaTeX",
+    "venue": "Mathematics in Computer Science",
+    "doi": "10.1007/s11786-011-0097-4",
+    "url": "https://doi.org/10.1007/s11786-011-0097-4",
+    "core_finding": "Nested LaTeX expressions require balanced bracket/brace stack parsing rather than single-level regular expressions.",
+    "codebase_implication": "Implement a balanced-brace stack parser for LaTeX environments, commands, and math blocks."
+  },
+  {
+    "id": "daille2017terminological",
+    "authors": ["Béatrice Daille"],
+    "year": 2017,
+    "title": "Terminological Mappings and Multi-Word Units: Quantitative and Qualitative Aspects",
+    "venue": "John Benjamins Publishing Company",
+    "doi": "10.1075/tlrp.16",
+    "url": "https://doi.org/10.1075/tlrp.16",
+    "core_finding": "Multi-word technical units are non-compositional semantic atoms; inserting modifiers inside an MWU breaks semantic reference.",
+    "codebase_implication": "Protect multi-word technical units (e.g., 'learning rate', 'gradient descent') against word insertion."
+  }
+]

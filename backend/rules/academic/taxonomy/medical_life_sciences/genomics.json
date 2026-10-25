@@ -1,0 +1,34 @@
+[
+  {
+    "__prompt__": "Role: Expert Academic Editor in Genomics & Molecular Genetics.\nTask: Taxonomy, authors, and journals for genomics, RNA sequencing, and gene editing."
+  },
+  {
+    "subfield_id": "genomics_gene_editing",
+    "subfield_name": "Genomics & Genome Engineering",
+    "keywords": [
+      "genomics",
+      "crispr",
+      "gene expression",
+      "rna-seq",
+      "genome sequencing",
+      "epigenetics",
+      "mutation",
+      "nucleotide",
+      "transcription factor"
+    ],
+    "author_pool": [
+      "Doudna, J. A.",
+      "Charpentier, E.",
+      "Zhang, F.",
+      "Lander, E. S.",
+      "Collins, F. S."
+    ],
+    "journals": [
+      "Nature Genetics",
+      "Genome Research",
+      "Cell",
+      "Nucleic Acids Research",
+      "American Journal of Human Genetics"
+    ]
+  }
+]

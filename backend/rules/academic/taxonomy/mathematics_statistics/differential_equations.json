@@ -1,0 +1,34 @@
+[
+  {
+    "__prompt__": "Role: Expert Academic Editor in Differential Equations & Applied Mathematics.\nTask: Taxonomy, authors, and journals for analytical and numerical differential equations."
+  },
+  {
+    "subfield_id": "partial_differential_equations",
+    "subfield_name": "Partial Differential Equations & Boundary Value Problems",
+    "keywords": [
+      "differential equation",
+      "pde",
+      "heat equation",
+      "wave equation",
+      "laplace equation",
+      "boundary value",
+      "sobolev space",
+      "cauchy problem",
+      "initial condition",
+      "elliptic operator"
+    ],
+    "author_pool": [
+      "Evans, L. C.",
+      "Brezis, H.",
+      "Lax, P. D.",
+      "Strauss, W. A.",
+      "Gilbarg, D."
+    ],
+    "journals": [
+      "Journal of Differential Equations",
+      "Communications on Pure and Applied Mathematics",
+      "SIAM Journal on Mathematical Analysis",
+      "Archive for Rational Mechanics and Analysis"
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "latex_papers": {
+    "total": 30,
+    "passed": 30,
+    "pass_rate_pct": 100.0,
+    "equations_100pct_identical": true,
+    "citations_100pct_intact": true,
+    "pdflatex_compilation_status": "NOT RUN (no compiler on host)"
+  },
+  "docx_papers": {
+    "total": 30,
+    "passed": 30,
+    "pass_rate_pct": 100.0,
+    "xml_structure_preserved": true,
+    "tables_intact": true,
+    "styles_preserved": true
+  }
+}

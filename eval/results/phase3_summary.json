@@ -1,0 +1,43 @@
+{
+  "commercial_detectors": {
+    "GPTZero": "NOT RUN (no public API key provided)",
+    "Originality.ai": "NOT RUN (no public API key provided)",
+    "Copyleaks": "NOT RUN (no public API key provided)",
+    "Sapling": "NOT RUN (no public API key provided)"
+  },
+  "zippy_metrics": {
+    "baseline_auroc": 0.6574,
+    "academic_auroc": 0.6713,
+    "conversational_auroc": 0.6602,
+    "tpr_at_1pct_fpr_original": 0.44,
+    "tpr_at_1pct_fpr_academic": 0.5,
+    "tpr_at_5pct_fpr_original": 0.44,
+    "tpr_at_5pct_fpr_academic": 0.5,
+    "mean_ai_prob_original": 65.6,
+    "mean_ai_prob_academic": 64.7,
+    "mean_ai_prob_conversational": 64.2,
+    "mean_ai_reduction_academic": 0.8,
+    "mean_ai_reduction_conversational": 1.4,
+    "human_false_positive_baseline": 59.3,
+    "human_false_positive_post_tool": 59.3,
+    "non_native_false_positive_baseline": 0.0,
+    "non_native_false_positive_post_tool": 0.0
+  },
+  "forensic_fingerprint_test": {
+    "test_accuracy": 64.6,
+    "roc_auc": 0.7209,
+    "is_vulnerable_to_fingerprinting": false,
+    "top_humanizer_signatures": [
+      "additionally",
+      "project",
+      "in",
+      "provides",
+      "furthermore",
+      "insights into",
+      "insights",
+      "addition",
+      "in addition",
+      "effectively"
+    ]
+  }
+}

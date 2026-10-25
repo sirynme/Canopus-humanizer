@@ -1,0 +1,63 @@
+[
+  {
+    "__prompt__": "Role: Expert Academic Editor in Computer Science & Artificial Intelligence.\nTask: Define sub-fields, concepts, keyword triggers, author pools, and prestigious journals for automated citation generation.\nNegative Prompting:\n- Do NOT include informal, casual, or non-peer-reviewed terminology."
+  },
+  {
+    "subfield_id": "machine_learning_deep_learning",
+    "subfield_name": "Machine Learning & Deep Neural Networks",
+    "keywords": [
+      "deep learning",
+      "neural network",
+      "transformer",
+      "convolutional",
+      "backpropagation",
+      "latent space",
+      "attention mechanism",
+      "gradient descent",
+      "loss function",
+      "supervised learning"
+    ],
+    "author_pool": [
+      "Vaswani, A.",
+      "LeCun, Y.",
+      "Bengio, Y.",
+      "Hinton, G.",
+      "Goodfellow, I.",
+      "He, K."
+    ],
+    "journals": [
+      "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "Journal of Machine Learning Research",
+      "Neural Networks",
+      "Nature Machine Intelligence",
+      "ACM Computing Surveys"
+    ]
+  },
+  {
+    "subfield_id": "natural_language_processing",
+    "subfield_name": "Natural Language Processing & LLMs",
+    "keywords": [
+      "large language model",
+      "tokenization",
+      "perplexity",
+      "semantic similarity",
+      "bert",
+      "gpt",
+      "text generation",
+      "word embedding",
+      "syntactic parsing"
+    ],
+    "author_pool": [
+      "Devlin, J.",
+      "Manning, C. D.",
+      "Jurafsky, D.",
+      "Radford, A.",
+      "Bowman, S. R."
+    ],
+    "journals": [
+      "Transactions of the Association for Computational Linguistics",
+      "Computational Linguistics",
+      "ACM Transactions on Information Systems"
+    ]
+  }
+]

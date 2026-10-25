@@ -1,0 +1,35 @@
+[
+  {
+    "__prompt__": "Role: Expert Academic Editor in Numerical Analysis & Scientific Computing.\nTask: Taxonomy, authors, and journals for numerical methods, discretization, and stability."
+  },
+  {
+    "subfield_id": "numerical_analysis_discretization",
+    "subfield_name": "Numerical Methods & Scientific Computing",
+    "keywords": [
+      "numerical method",
+      "finite difference",
+      "crank-nicolson",
+      "convergence",
+      "stability",
+      "truncation error",
+      "discretization",
+      "time step",
+      "grid spacing",
+      "iterative solver"
+    ],
+    "author_pool": [
+      "Quarteroni, A.",
+      "Trefethen, L. N.",
+      "Golub, G. H.",
+      "Burden, R. L.",
+      "Crank, J.",
+      "Nicolson, P."
+    ],
+    "journals": [
+      "SIAM Journal on Numerical Analysis",
+      "Numerische Mathematik",
+      "Mathematics of Computation",
+      "Journal of Computational Physics"
+    ]
+  }
+]

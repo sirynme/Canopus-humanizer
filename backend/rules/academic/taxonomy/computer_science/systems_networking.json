@@ -1,0 +1,33 @@
+[
+  {
+    "__prompt__": "Role: Expert Academic Editor in Systems and Computer Networks.\nTask: Taxonomy, authors, and journals for distributed computing and networks."
+  },
+  {
+    "subfield_id": "distributed_systems_cloud",
+    "subfield_name": "Distributed Computing & Cloud Infrastructure",
+    "keywords": [
+      "distributed systems",
+      "consensus protocol",
+      "raft",
+      "paxos",
+      "microservices",
+      "fault tolerance",
+      "throughput",
+      "latency",
+      "load balancing"
+    ],
+    "author_pool": [
+      "Lamport, L.",
+      "Dean, J.",
+      "Ghemawat, S.",
+      "Tanenbaum, A. S.",
+      "Brewer, E. A."
+    ],
+    "journals": [
+      "IEEE Transactions on Parallel and Distributed Systems",
+      "ACM Transactions on Computer Systems",
+      "Journal of Parallel and Distributed Computing",
+      "Future Generation Computer Systems"
+    ]
+  }
+]
