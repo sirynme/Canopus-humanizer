@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>canopus-humanizer — Text Humanizer</title>
-  
+
   <meta name="description" content="A clean, deterministic rule-based text humanizer with format protection.">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  
+
+
+
   <!-- Modern Typography: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <!-- Design System Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- Clean Top Navigation Bar -->
   <header class="navbar">
     <div class="nav-content">
       <a href="#" class="brand" aria-label="canopus-humanizer Home">
-        <img src="assets/logo.svg" alt="canopus-humanizer Logo" class="brand-logo" onerror="this.src='favicon.svg'">
+
         <div class="brand-title">
           <span class="brand-name">CANOPUS HUMANIZER</span>
           <span class="brand-pill">Text Humanizer</span>
@@ -40,7 +41,8 @@
 
         <!-- Light / Dark Theme Toggle -->
         <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
-          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -97,7 +99,8 @@
         </div>
 
         <!-- Optional Protected Terms Toggle -->
-        <button type="button" class="btn-subtle" id="togglePreserveBtn" title="Preserve specific names or technical terms">
+        <button type="button" class="btn-subtle" id="togglePreserveBtn"
+          title="Preserve specific names or technical terms">
           <span>🛡️ Preserve Terms</span>
         </button>
       </div>
@@ -108,7 +111,8 @@
       <div class="preserve-content">
         <label for="protectedTermsInput" class="preserve-label">Words or Names to Preserve (Unchanged):</label>
         <div class="preserve-input-row">
-          <input type="text" id="protectedTermsInput" class="preserve-input" placeholder="e.g. CRISPR, PyTorch, iPhone (comma separated)">
+          <input type="text" id="protectedTermsInput" class="preserve-input"
+            placeholder="e.g. CRISPR, PyTorch, iPhone (comma separated)">
           <span class="preserve-tip">These terms will remain untouched during transformation.</span>
         </div>
       </div>
@@ -175,7 +179,8 @@
         </div>
 
         <div class="editor-wrapper">
-          <textarea id="outputText" class="text-editor" readonly placeholder="Transformed text will appear here..."></textarea>
+          <textarea id="outputText" class="text-editor" readonly
+            placeholder="Transformed text will appear here..."></textarea>
         </div>
 
         <div class="pane-bottom">
@@ -211,4 +216,5 @@
   <!-- Application Script -->
   <script src="script.js"></script>
 </body>
+
 </html>

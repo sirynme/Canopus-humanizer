@@ -5,7 +5,10 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const API_BASE = "http://127.0.0.1:8080";
+  // Use current origin if served via HTTP(S) (e.g., http://localhost:8080), or fallback for direct file opening
+  const API_BASE = window.location.protocol.startsWith("http")
+    ? window.location.origin
+    : "http://localhost:8080";
   let isApiOnline = false;
   let selectedStyle = "academic";
 

@@ -44,6 +44,8 @@ if docs_dir.exists():
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("API_PORT", 8080))
-    print(f"\nStarting canopus-humanizer API on http://127.0.0.1:{port} ...")
-    print(f"API Documentation available at http://127.0.0.1:{port}/docs\n")
+    print(f"\n========================================================")
+    print(f"  Frontend UI:  http://localhost:{port}")
+    print(f"  API Docs:     http://localhost:{port}/docs")
+    print(f"========================================================\n")
     uvicorn.run("run_api:app", host="0.0.0.0", port=port, reload=False, app_dir=str(backend_dir))
